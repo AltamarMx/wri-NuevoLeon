@@ -1,5 +1,5 @@
 ---
-title: "Consumo Eléctrico de Vivienda y Edificios de la APF en México: Establecimiento de la Línea Base Nacional"
+title: "Consumo Eléctrico de Vivienda en Nuevo León"
 author: 
     - name: Guillermo Barrios
       email: gbv@ier.unam.mx
@@ -11,8 +11,6 @@ author:
       email: fairuz.loutfi@wri.org
 author-title: "Autores"  
 lang: es
-date: 2025-07-17
-image: image.png
 bibliography: biblio.bib
 format: 
     html:
@@ -34,64 +32,78 @@ notebook-links: false
 ---
 
 # Resumen ejecutivo
-Este documento se divide en tres secciones principales, la línea base de consumo eléctrico del sector edificación en vivienda y la línea base de consumo eléctrico del sector edificación de la Administración Pública Federal (APF). Ambas secciones pueden ser clasificadas por uso o no uso de aire acondicionado. Para el caso de la vivienda  existen las categorias asociadas al estrato socioeconómico, zona climática del INEGI y la tipología de la vivienda de acuerdo a los metros cuadrados de construcción. Para el caso de los edificios de la APF  existe la categoría de bioclima, uso genérico del edificio y por uso o no uso de aire acondicionado.
+Este documento se presentan los datos de consumo eléctrico de la vivienda del estado de Nuevo León. Los datos provienen de la ENCEVI 2018 y representan a 1,427,843 viviendas.
+
+# Consumos totales en vivienda con y sin aire acondicionado
+
+Del total de viviendas en Nuevo León el 43.8% cuenta con aire acondicionado (AA) y son responsables del 50.8% del consumo energético. La vivienda sin aire acondicionado representa al 56.2% con un 49.5% del consumo del sector.
+
+
+| Uso de AA          |   Viviendas (%) |   Consumo (%) |
+|:-------------------|----------------:|--------------:|
+| Con AA             |          43.8 |       50.8      |
+| Sin AA             |          56.2 |       49.2      |
+
+: Uso o no uso de aire acondicionado (AA), porcentaje de viviendas y porcentaje de consumo total en Nuevo León.
+
+# Consumo por tipología y estrato socioeconómico en vivienda con y sin uso de aire acondicionado
+
+Para cada grupo de vivienda (con y sin uso de AA) se calcula el porcentaje de consumo relativo respecto a cada grupo.
+
+## Consumo con aire acondicionado
+
+|   Tipología ($m^2$) | Estrato socioeconómico  |  % del consumo total      | % de viviendas |
+|-----:|:-----------|--------------------:|----------------:|
+|  100 | Medio alto |                 5.4 |             6.7 |
+|  100 | Alto       |                 4.1 |             6.2 |
+|  150 | Alto       |                 3.7 |             4.5 |
+|  150 | Medio alto |                 2.8 |             4.2 |
+|  200 | Alto       |                 2.7 |             2   |
+|  150 | Medio bajo |                 2.7 |             2.4 |
+|  100 | Medio bajo |                 2.6 |             4.1 |
+|   75 | Medio alto |                 2.5 |             3.1 |
+|  200 | Medio alto |                 2.4 |             2.5 |
+|   75 | Medio bajo |                 1.3 |             2.7 |
+|   55 | Medio bajo |                 1.3 |             1.8 |
+|  200 | Medio bajo |                 0.9 |             0.6 |
+|   75 | Alto       |                 0.8 |             1.2 |
+|  100 | Bajo       |                 0.3 |             0.3 |
+|   55 | Alto       |                 0.2 |             0.5 |
+|   55 | Medio alto |                 0.2 |             0.5 |
+|   75 | Bajo       |                 0.1 |             0.3 |
+|  200 | Bajo       |                 0.1 |             0.1 |
+|   55 | Bajo       |                 0   |             0.2 |
+
+: Porcentaje de consumo total respecto al grupo de vivienda con aire acondicionado por tipología y estrato socioeconómico.
 
  
 
+## Consumo sin aire acondicionado
 
-# Vivienda 
-
-{{< include vivienda.qmd >}}
-
-# Edificios de la Administración Pública Federal 
-
-{{< include edificios_apf.qmd >}}  
-
-
-# Conclusiones y trabajo futuro
-
-En este documento se presenta la metodología y los resultados del primer cálculo de la línea base de consumo eléctrico para vivienda y para los edificios de la Administración Pública Federal (APF).
-
-## Vivienda 
-
-
-En el apartado de vivienda, para poder realizar este cálculo se utilizó, para cada casa:
-
-1. Consumo mensual de energía eléctrica (kWh)
-2. Clima
-3. Uso o no uso de aire acondicionado
-4. Número de personas que habitan la vivienda
-5. Tipología de la vivienda
-
-
-Si bien en esta primera aproximación no se realizó un análisis detallado por estado, dicho desagregado es técnicamente posible y resultaría valioso. También es posible realizar una solicitud al laboratorio de microdatos del INEGI para contar con información a nivel de municipio y entidad federativa, lo que permitiría identificar regiones con consumos elevados y, en consecuencia, diseñar acciones de eficiencia energética focalizadas.
-
-Asimismo, sería deseable establecer una periodicidad regular para la aplicación de la ENCEVI y, en el cuestionario, recuperar el consumo energético directamente en kWh, además del gasto monetario, a fin de mejorar la comparabilidad y la precisión de los indicadores.
-
-Cabe señalar que las encuestas del INEGI agregan en un solo rubro los materiales de muro: tabique, ladrillo, block, piedra, cantera, cemento o concreto. Cada material presenta diferencias importantes en su comportamiento térmico; por ello, una mayor granularidad en esta variable fortalecería el análisis de demanda energética y de confort térmico en vivienda.
-
-Finalmente, los datos presentados tienen muchas maneras de presentarse, por lo que el desarrollo de una WebApp que permita presentar los datos de diferentes maneras e inclusive realizar comparaciones sería de gran utilidad para analizar la información que se ha generado.
+|   Tipología ($m^2$) | Estrato socioeconómico  |  % del consumo total      | % de viviendas |
+|-----:|:-----------|--------------------:|----------------:|
+|  100 | Medio alto |                 4.4 |             7.9 |
+|  100 | Medio bajo |                 4.2 |             7.5 |
+|   75 | Medio bajo |                 3.3 |             6.4 |
+|  150 | Medio bajo |                 2.9 |             4.8 |
+|   55 | Medio bajo |                 2.4 |             4.2 |
+|  200 | Medio alto |                 2.3 |             2.7 |
+|  150 | Medio alto |                 2.2 |             3.7 |
+|  200 | Medio bajo |                 2   |             2.2 |
+|  100 | Alto       |                 1.7 |             2.9 |
+|   75 | Medio alto |                 1.6 |             3.7 |
+|  150 | Alto       |                 1.3 |             1.9 |
+|   55 | Medio alto |                 1.3 |             1.8 |
+|   75 | Alto       |                 0.9 |             1.6 |
+|  200 | Alto       |                 0.5 |             1.3 |
+|   30 | Medio bajo |                 0.5 |             1.4 |
+|   75 | Bajo       |                 0.4 |             0.6 |
+|  100 | Bajo       |                 0.1 |             0.3 |
+|  150 | Bajo       |                 0.1 |             0.2 |
+|   55 | Alto       |                 0.1 |             0.2 |
+|   55 | Bajo       |                 0.1 |             0.4 |
+|   30 | Medio alto |                 0.1 |             0.2 |
+|   30 | Bajo       |                 0   |             0.2 |
 
 
-## Edificos de la Administración Pública Federal
-
-En el apartado de edificios de la APF, el cálculo actualizado de la línea base se realizó, para cada edificio, con las siguientes variables:
-
-1. Consumo mensual de energía eléctrica (kWh)
-2. Entidad y municipio
-3. Uso o no uso de aire acondicionado
-4. Uso genérico de la edificación
-5. Área construida
-
-Aunque no se desagregó por completo a nivel estatal en esta fase, es técnicamente factible ampliar el análisis por municipio y entidad, lo que aportaría mayor precisión para identificar focos de alto consumo y diseñar estrategias locales de eficiencia energética. Asimismo, la adopción de la clasificación de 10 bioclimas empleada por INFONAVIT y CONAVI, junto con la estimación de usuarios por edificio y el porcentaje de áreas climatizadas, enriquecería el diagnóstico, sobre todo si se complementa con muestras fuera del ámbito de la APF.
-
-La ampliación del estudio a series históricas resultaría valiosa para evaluar tendencias, aunque incrementa la complejidad del trabajo; de ahí la conveniencia de desarrollar una WebApp interactiva que facilite la visualización comparativa de escenarios, variables y periodos, y permita incorporar futuros datos con un flujo de actualización ágil.
-
-## Conclusiones generales
-
-En este momento es el INEGI, por medio de la ENCEVI,  quién cuenta con una metodología que nos permite realizar el cálculo de la línea base para vivienda y no existe un organismo o metodología para edificaciones comerciales o no residenciales. Sin embargo la ENCEVI no se ha repetido y es hasta el momento, una encuesta única. 
-
-Colombia ha sentado el precedente de que cuentan con un Sistema Único de Información de Servicios Públicos Domiciliarios que "recoge, almacena, procesa y publica información reportada por parte de las empresas prestadoras y entidades territoriales. El sistema está a cargo de la Superintendencia de Servicios Públicos Domiciliarios", como lo dice textualmente su página web.
-
-
-  
+: Porcentaje de consumo total respecto al grupo de vivienda sin aire acondicionado por tipología y estrato socioeconómico.
