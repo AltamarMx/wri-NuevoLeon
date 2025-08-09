@@ -1,0 +1,226 @@
+
+##  Datos de vivienda  
+
+### Fuentes de datos 
+
+Los datos provienen de dos fuentes. La primera fuente corresponde a la Encuesta Nacional sobre Consumo de Energéticos en Viviendas Particulares 2018 (ENCEVI) realizada por el INEGI [@INEGI_ENCEVI_2018].  La ENCEVI  es el primer levantamiento especializado que describe qué, cuánto y cómo consumen energía los hogares mexicanos. Se aplicó a 32,047 viviendas entre enero y junio de 2018, abarcó 165 preguntas distribuidas en 13 secciones temáticas y genera micro-datos organizados en 13 tablas relacionales con factores de expansión para obtener estimaciones nacionales representativas. La ENCEVI no contiene directamente datos de consumo energético, contiene el total en pesos mexicanos pagado por consumo eléctrico pagado a la  Comisión Federal de Electricidad (CFE).
+Adicionalmente, cada vivienda cuenta con un factor de expansión que indica a cuántas viviendas representa, por lo que la suma de los factores de expansión de las 32 047 viviendas proporciona la estimación del total de viviendas en 2018 para representar a un total de 33,162,148 de viviendas.
+
+
+
+
+La segunda fuente es un artículo científico donde se calcula el consumo energético en Wh y subsidios a partir de los datos de consumo  de la ENCEVI [@Hernandez_PatinoEcheverri_2022]. Hernández y Patiño combinaron los datos del ENCEVI y ENIGH con registros tarifarios de CFE para estimar, hogar por hogar, el consumo eléctrico y el monto del subsidio recibido.⁠ 
+
+Por lo anterior, se tiene la base de datos original del ENCEVI con una columna nueva que es el consumo eléctrico mensual en Wh calculada por [@Hernandez_PatinoEcheverri_2022],  a la que llamaremos ENCEVI complementada. A partir de estos datos se calcula el consumo mensual y se clasifican de acuerdo al estrato socioeconómico, tipología, región climática y uso o no uso de aire acondicionado.
+
+El principal resultado de este análisis es brindar información para identificar el tipo de consumo que tenemos de acuerdo a la clasificación de la vivienda que habitemos y nos brinde una idea del potencial de ahorro que podemos tener respecto al grupo.
+
+
+
+
+
+### Estrato socioeconómico
+
+La estratificación socioeconómica de las viviendas, tal como se muestra en la @tbl-estrato, se construye a partir de 24 indicadores que combina características de los residentes (nivel educativo, acceso a servicios, etc.), atributos físicos de la vivienda y su equipamiento. Estos indicadores se obtuvieron del XII Censo General de Población y Vivienda 2000 mediante métodos estadísticos multivariados [@INEGI_ENCEVI_2018].
+
+
+
+| Valor | Etiqueta      |
+|-------|---------------|
+| 1     | Bajo          |
+| 2     | Medio bajo    |
+| 3     | Medio alto    |
+| 4     | Alto          |
+: Clasificación de estrato socioeconómico en la ENCEVI. {#tbl-estrato .striped .hover }
+
+
+### Tipología
+
+Por tipología haremos referencia a la superficie construida en $m^2$. La encuesta de la ENCEVI clasifica en las  opciones mostradas en la @tbl-tipologia. Se asigna un alias para hacer referencia a cada tipología.
+
+
+| Código | Superficie         | Alias  |
+|--------|--------------------|--------|
+| 1      | Hasta 30 m²        | 30     |
+| 2      | De 31 a 55 m²      | 55     |
+| 3      | De 56 a 75 m²      | 75     |
+| 4      | De 76 a 100 m²     | 100    |
+| 5      | De 101 a 150 m²    | 150    |
+| 6      | De 151 a 200 m²    | 200    |
+| 7      | 201 m² o más       | 201    |
+| 9      | No sabe            |        |
+: Clasificación de la tipología usada en la ENCEVI. {#tbl-tipologia .striped .hover }
+
+
+
+### Entidad 
+La ENCEVI  proporciona información de la entidad federativa a la que pertenece la encuesta. En la @tbl-entidades se presentan los valores numéricos asignados en los microdatos y la entidad correspondiente.
+
+| Valor | Categoría                       |
+| ----- | ------------------------------- |
+| 01    | Aguascalientes                  |
+| 02    | Baja California                 |
+| 03    | Baja California Sur             |
+| 04    | Campeche                        |
+| 05    | Coahuila de Zaragoza            |
+| 06    | Colima                          |
+| 07    | Chiapas                         |
+| 08    | Chihuahua                       |
+| 09    | Ciudad de México                |
+| 10    | Durango                         |
+| 11    | Guanajuato                      |
+| 12    | Guerrero                        |
+| 13    | Hidalgo                         |
+| 14    | Jalisco                         |
+| 15    | México                          |
+| 16    | Michoacán de Ocampo             |
+| 17    | Morelos                         |
+| 18    | Nayarit                         |
+| 19    | Nuevo León                      |
+| 20    | Oaxaca                          |
+| 21    | Puebla                          |
+| 22    | Querétaro                       |
+| 23    | Quintana Roo                    |
+| 24    | San Luis Potosí                 |
+| 25    | Sinaloa                         |
+| 26    | Sonora                          |
+| 27    | Tabasco                         |
+| 28    | Tamaulipas                      |
+| 29    | Tlaxcala                        |
+| 30    | Veracruz de Ignacio de la Llave |
+| 31    | Yucatán                         |
+| 32    | Zacatecas                       |
+: Valor numérico y entidad correspondiente para la ENCEVI. {#tbl-entidades .striped .hover }
+
+
+
+### Región climática
+La ENCEVI  dividide en tres
+regiones climáticas, la región 1 o cálida extrema, la región 2 o templada y la región 3 o tropical. En la @tbl-clima se presentan las tres regiones climáticas que utiliza el INEGI y las ciudades correspondientes.
+
+
+| Código | Región                   | Ciudades                                                                                                                  |
+|--------|--------------------------|---------------------------------------------------------------------------------------------------------------------------|
+| 1      | Región cálida extrema    | Baja California, Baja California Sur, Coahuila de Zaragoza, Chihuahua, Durango, Nuevo León, Sinaloa, Sonora, Tamaulipas |
+| 2      | Región templada          | Aguascalientes, Colima, Ciudad de México, Guanajuato, Hidalgo, Jalisco, México, Michoacán de Ocampo, Morelos, Nayarit, Puebla, Querétaro, San Luis Potosí, Tlaxcala, Zacatecas |
+| 3      | Región tropical          | Campeche, Chiapas, Guerrero, Oaxaca, Quintana Roo, Tabasco, Veracruz de Ignacio de la Llave, Yucatán                     |
+: Regiones climáticas usadas por el INEGI en la ENCEVI y las ciudades de cada región. {#tbl-clima .striped .hover }
+
+
+### Aire acondicionado 
+
+En la ENCEVI se indagó exhaustivamente sobre la presencia y el uso de equipos de aire acondicionado en el hogar, cubriendo desde el tipo y la capacidad del equipo hasta su frecuencia y edad. En la @tbl-acondicionado  se presentan las principales variables recogidas en la ENCEVI.
+
+| Variable        | Descripción                                 |
+|-----------------|---------------------------------------------|
+| Tipo            | Tipo de aire acondicionado                  |
+| Capacidad       | Capacidad del equipo                        |
+| Días de uso     | Número de días que se usa al año            |
+| Uso mensual     | Uso en cada mes                             |
+| Horas diarias   | Horas promedio de encendido por día         |
+| Minutos diarios | Minutos promedio de encendido por día       |
+| Año adquisición | Año en que se compró el equipo              |
+| Años de uso     | Tiempo total de uso en años                 |
+: Variables recogidas por el INEGI en la ENCEVI respecto al aire acondicionado. {#tbl-acondicionado .striped .hover }
+
+### Factor de expansión
+
+En las encuestas probabilísticas de hogares, cada vivienda y sus residentes seleccionados representan a un conjunto más amplio de viviendas y personas con características socioeconómicas similares. El factor de expansión asigna un peso a cada unidad muestral, de modo que sus resultados puedan proyectarse  al total de la población[@INEGI_ENCEVI_2018].
+
+
+
+
+### Metodología de preparación de datos
+
+En esta sección se documenta la metodología para preparar la base de datos ENCEVI complementada (ENCEVI + calculo de [@Hernandez_PatinoEcheverri_2022-]), contabilizar las viviendas iniciales y las finales para dejar documentada la falta de datos y suposiciones tomadas.
+
+1. La ENCEVI se aplicó a 32,047 viviendas y los datos que proporciona el INEGI corresponden a 28,953 viviendas. Utilizando el factor de expansión, estas encuestas representan a 33,162,148  viviendas.
+
+2. Al unir con los datos de @Hernandez_PatinoEcheverri_2022 conservamos  20,578 encuestas de viviendas que representan a 22,337,082 viviendas. Estas encuestas y viviendas contienen ya el consumo mensual de energía eléctrica.
+
+3. Para poder clasificar por tipología se requiere que en cada encuesta se haya contestado el tamaño de superficia construida de acuerdo a la @tbl-tipologia. De las encuestas restantes 5,120 viviendas no cuentan con información sobre la tipología, por lo que contamos con 15,425 encuestas útiles que representan a 16,680,876 de viviendas.
+
+4. Este conjunto de datos (15,425 encuestas y 16,680,876 viviendas) será utilizado para calcular el consumo eléctrico mensual utilizando el estrato socioeconómico, tipología, región climática y uso o no uso de aire acondicionado. En la @tbl-resumen se muestran las categorías de cada variable considerada en el análisis.
+
+
+| Estrato socioeconómico    | Tipología                  | Región climática             | Aire acondicionado |
+|---------------------------|----------------------------|------------------------------|--------------------|
+| 1. Bajo                   | 1. Hasta 30 m²             | 1. Región cálida extrema     | 1. Sí              |
+| 2. Medio bajo             | 2. De 31 a 55 m²           | 2. Región templada           | 2. No              |
+| 3. Medio alto             | 3. De 56 a 75 m²           | 3. Región tropical           |                    |
+| 4. Alto                   | 4. De 76 a 100 m²          |                              |                    |
+|                           | 5. De 101 a 150 m²         |                              |                    |
+|                           | 6. De 151 a 200 m²         |                              |                    |
+|                           | 7. 201 m² o más            |                              |                    |
+|                           | 8. No sabe                 |                              |                    |
+: Resumen de categorías de variables para el análisis. {#tbl-resumen .striped .hover }
+
+En la @tbl-flujo se hace un resumen de las encuestas útiles para el presente análisis desde el primero al cuarto paso. En el proceso de preparación de los datos se han dejado de utilizar 16,481,272 viviendas.
+
+| Paso | Descripción                                          | Encuestas | Enc. perdidas | Viviendas representadas | Viv. perdidas |
+|------|------------------                                    |-----------|---------------|-------------------------|---------------|
+| 1    | Aplicación ENCEVI (baseline)                         | 32,047    |  3,094        | 33 162 148              | –             |
+| 2    | Unión con @Hernandez_PatinoEcheverri_2022            | 20,578    | 11,469        | 22 337 082              | 10,825,066    |
+| 3    | Filtrado por tipología (ver @tbl-tipologia)          | 15,425    | 5,153         | 16 680 876              | 5,656,206     |
+| 4    | Conjunto final para análisis                         | 15,425    | 0             | 16 680 876              | 0             |
+: Flujo del muestreo y depuración de encuestas y viviendas. {#tbl-flujo .striped .hover}
+
+
+
+
+##  Resultados de vivienda  sin aire acondicionado 
+
+### Línea base de consumo eléctrico mensual sin aire acondicionado por vivienda
+
+
+Se calcula la línea base de consumo eléctrico total representando los percentiles 25, 50 y 70 para cada uno de los tres climas, los cuatro estratos socioeconómicos y las seis tipologías (@fig-mensual-sin-aa). Cada rectangulo representa al percentil 25% (parte inferior), percentil 50% (línea central) y percentil 75% (parte superior). 
+
+
+{{< embed ./notebooks_vivienda/004a_Analisis_SIN_aa.ipynb#fig-mensual-sin-aa >}} 
+ 
+### Línea base de consumo eléctrico mensual sin aire acondicionado por vivienda y persona y m2
+
+
+
+También se calcula la línea base de consumo eléctrico normalizado con el área de construcción y el número de personas que habitan la vivienda para cada uno de los tres climas, los cuatro estratos socioeconómicos y las seis tipologías y indicando los percentiles 25, 50 y 75%(@fig-mensual-personam2-sin-aa).
+
+
+{{< embed ./notebooks_vivienda/004a_Analisis_SIN_aa.ipynb#fig-mensual-personam2-sin-aa >}} 
+
+
+
+
+### Tablas de línea base de consumo eléctrico mensual sin aire acondicionado por vivienda
+
+{{< include  tabla_saa_kwh_mes.qmd >}} 
+
+### Tablas de línea base de consumo eléctrico mensual sin aire acondicionado por vivienda y persona y m2
+
+{{< include  tabla_saa_kwhm2persona.qmd >}} 
+
+
+
+##  Resultados de vivienda  con aire acondicionado 
+
+### Línea base de consumo eléctrico mensual con aire acondicionado por vivienda
+
+Se calcula la línea base de consumo eléctrico total representando los percentiles 25, 50 y 70 para cada uno de los tres climas, los cuatro estratos socioeconómicos y las seis tipologías (@fig-mensual-con-aa). Cada rectangulo representa al percentil 25% (parte inferior), percentil 50% (línea central) y percentil 75% (parte superior). 
+
+
+{{< embed ./notebooks_vivienda/004b_Analisis_CON_aa.ipynb#fig-mensual-con-aa >}} 
+
+### Línea base de consumo eléctrico mensual con aire acondicionado por vivienda y persona y m2
+
+También se calcula la línea base de consumo eléctrico normalizado con el área de construcción y el número de personas que habitan la vivienda para cada uno de los tres climas, los cuatro estratos socioeconómicos y las seis tipologías y indicando los percentiles 25, 50 y 75%(@fig-mensual-personam2-con-aa).
+
+
+{{< embed ./notebooks_vivienda/004b_Analisis_CON_aa.ipynb#fig-mensual-personam2-con-aa >}} 
+
+### Tablas de línea base de consumo eléctrico mensual por persona y metro cuadrado con aire acondicionado por vivienda
+
+{{< include  tabla_aa_kwh_mes.qmd >}} 
+
+
+### Tablas de línea base de consumo eléctrico mensual por persona y metro cuadrado con aire acondicionado por vivienda
+
+{{< include  tabla_aa_kwhm2persona.qmd >}} 

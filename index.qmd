@@ -1,0 +1,97 @@
+---
+title: "Consumo Eléctrico de Vivienda y Edificios de la APF en México: Establecimiento de la Línea Base Nacional"
+author: 
+    - name: Guillermo Barrios
+      email: gbv@ier.unam.mx
+    - name: Erick Romo
+      email: roelej@ier.unam.mx 
+    - name: Octavio Molina
+    - name: Alexis Levy
+    - name: Fairuz Loutfi
+      email: fairuz.loutfi@wri.org
+author-title: "Autores"  
+lang: es
+date: 2025-07-17
+image: image.png
+bibliography: biblio.bib
+format: 
+    html:
+        embed-resources: true
+        toc: true           # ←-- habilita la tabla de contenido
+        toc-title: "Índice" # título que aparecerá encima del TOC
+        toc-depth: 3        # (opcional) niveles de encabezado que se mostrarán
+        number-sections: true   # (opcional) numeración automática de secciones
+    docx:                    # ← aquí definimos la salida para Word
+        toc: true              # tabla de contenido
+        number-sections: true  # numeración de secciones
+    pdf:                    # ← aquí definimos la salida para Word
+        toc: true              # tabla de contenido
+        number-sections: true  # numeración de secciones
+    # opcional: reference-doc: "plantilla.docx"
+
+
+notebook-links: false
+---
+
+# Resumen ejecutivo
+Este documento se divide en tres secciones principales, la línea base de consumo eléctrico del sector edificación en vivienda y la línea base de consumo eléctrico del sector edificación de la Administración Pública Federal (APF). Ambas secciones pueden ser clasificadas por uso o no uso de aire acondicionado. Para el caso de la vivienda  existen las categorias asociadas al estrato socioeconómico, zona climática del INEGI y la tipología de la vivienda de acuerdo a los metros cuadrados de construcción. Para el caso de los edificios de la APF  existe la categoría de bioclima, uso genérico del edificio y por uso o no uso de aire acondicionado.
+
+ 
+
+
+# Vivienda 
+
+{{< include vivienda.qmd >}}
+
+# Edificios de la Administración Pública Federal 
+
+{{< include edificios_apf.qmd >}}  
+
+
+# Conclusiones y trabajo futuro
+
+En este documento se presenta la metodología y los resultados del primer cálculo de la línea base de consumo eléctrico para vivienda y para los edificios de la Administración Pública Federal (APF).
+
+## Vivienda 
+
+
+En el apartado de vivienda, para poder realizar este cálculo se utilizó, para cada casa:
+
+1. Consumo mensual de energía eléctrica (kWh)
+2. Clima
+3. Uso o no uso de aire acondicionado
+4. Número de personas que habitan la vivienda
+5. Tipología de la vivienda
+
+
+Si bien en esta primera aproximación no se realizó un análisis detallado por estado, dicho desagregado es técnicamente posible y resultaría valioso. También es posible realizar una solicitud al laboratorio de microdatos del INEGI para contar con información a nivel de municipio y entidad federativa, lo que permitiría identificar regiones con consumos elevados y, en consecuencia, diseñar acciones de eficiencia energética focalizadas.
+
+Asimismo, sería deseable establecer una periodicidad regular para la aplicación de la ENCEVI y, en el cuestionario, recuperar el consumo energético directamente en kWh, además del gasto monetario, a fin de mejorar la comparabilidad y la precisión de los indicadores.
+
+Cabe señalar que las encuestas del INEGI agregan en un solo rubro los materiales de muro: tabique, ladrillo, block, piedra, cantera, cemento o concreto. Cada material presenta diferencias importantes en su comportamiento térmico; por ello, una mayor granularidad en esta variable fortalecería el análisis de demanda energética y de confort térmico en vivienda.
+
+Finalmente, los datos presentados tienen muchas maneras de presentarse, por lo que el desarrollo de una WebApp que permita presentar los datos de diferentes maneras e inclusive realizar comparaciones sería de gran utilidad para analizar la información que se ha generado.
+
+
+## Edificos de la Administración Pública Federal
+
+En el apartado de edificios de la APF, el cálculo actualizado de la línea base se realizó, para cada edificio, con las siguientes variables:
+
+1. Consumo mensual de energía eléctrica (kWh)
+2. Entidad y municipio
+3. Uso o no uso de aire acondicionado
+4. Uso genérico de la edificación
+5. Área construida
+
+Aunque no se desagregó por completo a nivel estatal en esta fase, es técnicamente factible ampliar el análisis por municipio y entidad, lo que aportaría mayor precisión para identificar focos de alto consumo y diseñar estrategias locales de eficiencia energética. Asimismo, la adopción de la clasificación de 10 bioclimas empleada por INFONAVIT y CONAVI, junto con la estimación de usuarios por edificio y el porcentaje de áreas climatizadas, enriquecería el diagnóstico, sobre todo si se complementa con muestras fuera del ámbito de la APF.
+
+La ampliación del estudio a series históricas resultaría valiosa para evaluar tendencias, aunque incrementa la complejidad del trabajo; de ahí la conveniencia de desarrollar una WebApp interactiva que facilite la visualización comparativa de escenarios, variables y periodos, y permita incorporar futuros datos con un flujo de actualización ágil.
+
+## Conclusiones generales
+
+En este momento es el INEGI, por medio de la ENCEVI,  quién cuenta con una metodología que nos permite realizar el cálculo de la línea base para vivienda y no existe un organismo o metodología para edificaciones comerciales o no residenciales. Sin embargo la ENCEVI no se ha repetido y es hasta el momento, una encuesta única. 
+
+Colombia ha sentado el precedente de que cuentan con un Sistema Único de Información de Servicios Públicos Domiciliarios que "recoge, almacena, procesa y publica información reportada por parte de las empresas prestadoras y entidades territoriales. El sistema está a cargo de la Superintendencia de Servicios Públicos Domiciliarios", como lo dice textualmente su página web.
+
+
+  
